@@ -7,6 +7,8 @@ namespace CookieOrder
         static void Main(string[] args)
         {
             bool continueOrdering = true;
+            Order newOrder;
+            MasterList masterCookieList = new MasterList();
 
             Console.WriteLine("Let's buy some cookies!");
 
@@ -27,12 +29,22 @@ namespace CookieOrder
                 {
                     case "1":
                         // Add order
+                        newOrder = new Order();
+                        Console.Write("What is your name? ");
+                        string name = Console.ReadLine();
+                        newOrder.SetBuyer(name);
+                        Console.Write("What cookie to you want to order? ");
+                        newOrder.SetVariety(Console.ReadLine());
+                        Console.Write("How many boxes would you like? ");
+                        newOrder.SetNumberBoxes(Convert.ToInt32(Console.ReadLine()));
+                        masterCookieList.AddOrder(newOrder);
                         break;
                     case "2":
                         // Remove order
                         break;
                     case "3":
                         // Review Master list
+                        masterCookieList.PrintAllOrderDetails();
                         break;
                     case "4":
                         // See Order details
