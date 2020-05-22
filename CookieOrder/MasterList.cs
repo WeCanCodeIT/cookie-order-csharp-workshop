@@ -21,5 +21,31 @@ namespace CookieOrder
                 order.PrintOrderDetails();
             }
         }
+
+        public void PrintAllBuyers()
+        {
+            // Print all buyers with a number assigned
+            int listNumber = 1;
+
+            Console.WriteLine("List of Buyers: ");
+            foreach(Order order in CookieOrderList)
+            {
+                string buyer = order.GetBuyer();
+                Console.WriteLine($"{listNumber}. {buyer}");
+                listNumber++;
+            }
+        }
+
+        public Order FindCookieOrderByIndex(int index)
+        {
+
+            Order selectedOrder = CookieOrderList[index];
+            return selectedOrder;
+        }
+
+        public void RemoveOrderFromList(Order order)
+        {
+            CookieOrderList.Remove(order);
+        }
     }
 }

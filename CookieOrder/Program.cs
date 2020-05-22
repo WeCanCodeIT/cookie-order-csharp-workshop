@@ -36,11 +36,24 @@ namespace CookieOrder
                         Console.Write("What cookie to you want to order? ");
                         newOrder.SetVariety(Console.ReadLine());
                         Console.Write("How many boxes would you like? ");
-                        newOrder.SetNumberBoxes(Convert.ToInt32(Console.ReadLine()));
+                        string numberOfBoxes = Console.ReadLine();
+                        int numberOfBoxesAsInt = Convert.ToInt32(numberOfBoxes);
+                        newOrder.SetNumberBoxes(numberOfBoxesAsInt);
                         masterCookieList.AddOrder(newOrder);
                         break;
                     case "2":
                         // Remove order
+                        // Get the list, print list to console
+                        masterCookieList.PrintAllBuyers();
+                        // Ask user to Choose an order from the list
+                        Console.Write("Which order would you like to remove? ");
+                        int buyerNumber = Convert.ToInt32(Console.ReadLine());
+                        // Go to my list and get the object
+                        Order orderToRemove = masterCookieList.FindCookieOrderByIndex(buyerNumber - 1);
+                        // Remove the order from the list by its index
+                        masterCookieList.RemoveOrderFromList(orderToRemove);
+                        // masterCookieList
+                        Console.WriteLine("Your order has been removed.");
                         break;
                     case "3":
                         // Review Master list

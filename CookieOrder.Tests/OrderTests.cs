@@ -23,6 +23,17 @@ namespace CookieOrder.Tests
             Assert.Equal(buyer, sut.Buyer);
         }
 
+        // Get buyer
+        [Fact]
+        public void GetBuyer_Should_Get_Buyer_Property()
+        {
+            string buyer = "Cookie Monster";
+            sut.SetBuyer(buyer);
+
+            Assert.Equal(buyer, sut.GetBuyer());
+        }
+
+
         // Set variety
         [Fact]
         public void SetVariety_Should_Set_Variety_Property()

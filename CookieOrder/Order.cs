@@ -15,6 +15,11 @@ namespace CookieOrder
             Buyer = buyer;
         }
 
+        public string GetBuyer()
+        {
+            return Buyer;
+        }
+
         public void SetVariety(string variety)
         {
             Variety = variety;
