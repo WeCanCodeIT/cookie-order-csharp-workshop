@@ -53,6 +53,29 @@ namespace CookieOrder.Tests
             Assert.DoesNotContain(order, sut.CookieOrderList);
         }
 
+        [Fact]
+        public void AddFreeBoxToAllOrders_Should_Increase_Box_Count_Of_All_Orders()
+        {
+            // Arrange
+            Order firstOrder = new Order();
+            firstOrder.SetNumberBoxes(10);
+            sut.AddOrder(firstOrder);
+
+            Order secondOrder = new Order();
+            secondOrder.SetNumberBoxes(10);
+            sut.AddOrder(secondOrder);
+
+            // Act
+            sut.AddFreeBoxToAllOrders();
+
+            // Assert with 2 Assertions, not best practice
+            Assert.Equal(11, firstOrder.NumberBoxes);
+            Assert.Equal(11, secondOrder.NumberBoxes);
+
+            // Example of single assertion to pass this test
+            // Assert.True(sut.CookieOrderList.TrueForAll(order => order.NumberBoxes == 11));
+        }
+
 
     }
 }

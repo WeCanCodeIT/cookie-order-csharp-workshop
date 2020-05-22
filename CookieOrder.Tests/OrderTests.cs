@@ -57,5 +57,17 @@ namespace CookieOrder.Tests
             Assert.Equal(numberOfBoxes, sut.NumberBoxes);
         }
 
+        // Add 1 box to NumBoxes
+        [Fact]
+        public void AddFreeBox_Should_Increase_NumberBoxes_By_1()
+        {
+            int boxesOrdered = 5;
+            sut.SetNumberBoxes(boxesOrdered);
+
+            sut.AddFreeBox();
+
+            Assert.Equal(boxesOrdered + 1, sut.NumberBoxes);
+        }
+
     }
 }

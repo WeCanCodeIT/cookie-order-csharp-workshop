@@ -36,5 +36,10 @@ namespace CookieOrder
             Console.WriteLine($"VARIETY: {Variety}");
             Console.WriteLine($"NUM OF BOXES: {NumberBoxes}\n");
         }
+
+        public void AddFreeBox()
+        {
+            NumberBoxes++;
+        }
     }
 }

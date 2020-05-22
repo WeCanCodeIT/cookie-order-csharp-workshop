@@ -27,8 +27,7 @@ namespace CookieOrder
 
                 switch (menuOption)
                 {
-                    case "1":
-                        // Add order
+                    case "1": // Add order
                         newOrder = new Order();
                         Console.Write("What is your name? ");
                         string name = Console.ReadLine();
@@ -41,8 +40,7 @@ namespace CookieOrder
                         newOrder.SetNumberBoxes(numberOfBoxesAsInt);
                         masterCookieList.AddOrder(newOrder);
                         break;
-                    case "2":
-                        // Remove order
+                    case "2":  // Remove order
                         // Get the list, print list to console
                         masterCookieList.PrintAllBuyers();
                         // Ask user to Choose an order from the list
@@ -52,18 +50,25 @@ namespace CookieOrder
                         Order orderToRemove = masterCookieList.FindCookieOrderByIndex(buyerNumber - 1);
                         // Remove the order from the list by its index
                         masterCookieList.RemoveOrderFromList(orderToRemove);
-                        // masterCookieList
                         Console.WriteLine("Your order has been removed.");
                         break;
-                    case "3":
-                        // Review Master list
+                    case "3": // Review Master list
                         masterCookieList.PrintAllOrderDetails();
                         break;
-                    case "4":
-                        // See Order details
+                    case "4": // See Order details
+                        // Get a list of buyers, print to console
+                        masterCookieList.PrintAllBuyers();
+                        // Ask user to Choose the buyer to see more details
+                        Console.Write("Whose order would you like to see? ");
+                        buyerNumber = Convert.ToInt32(Console.ReadLine());
+                        // Go to the list and returned the Order object
+                        Order orderToReview = masterCookieList.FindCookieOrderByIndex(buyerNumber - 1);
+                        // Print order detail to the console
+                        orderToReview.PrintOrderDetails();
                         break;
-                    case "5":
-                        // Apply promotional bonus
+                    case "5": // Apply promotional bonus
+                        masterCookieList.AddFreeBoxToAllOrders();
+                        masterCookieList.PrintAllOrderDetails();
                         break;
                     case "6":
                         Console.WriteLine("Thanks for shopping with us!  Good-bye.");

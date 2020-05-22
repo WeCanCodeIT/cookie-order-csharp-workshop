@@ -47,5 +47,15 @@ namespace CookieOrder
         {
             CookieOrderList.Remove(order);
         }
+
+        public void AddFreeBoxToAllOrders()
+        {
+            Console.WriteLine("It's free box Friday!  Please enjoy a free box of cookies on us!");
+            foreach(Order order in CookieOrderList)
+            {
+                order.AddFreeBox();
+            }
+
+        }
     }
 }
